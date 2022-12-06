@@ -1,0 +1,31 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let persona of listadoPersonas">
+        <td>{{persona.id}}</td>
+        <td>{{persona.nombre}}</td>
+        <td>{{persona.apellido}}</td>
+        <td>{{persona.edad}}</td>
+        <td>
+          <app-persona-baja [persona]="persona" (onEliminar)="actualizarListado()"></app-persona-baja>
+          <button [routerLink]="['/modificar/' + persona.id]">Modificar Persona</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <button (click)="inicio()">Inicio</button>
+    <button (click)="nuevaPersona()">Nueva Persona</button>
+  </div>
+</div>
